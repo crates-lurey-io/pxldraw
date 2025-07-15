@@ -18,3 +18,11 @@ cargo-nextest = { version = "0.9.98", locked = true }
 cargo-llvm-cov = { version = "0.6.16", locked = true }
 just = { version = "1.40.0" }
 taplo-cli = { version = "0.10.0", bins = ["taplo"] }
+
+[dependencies]
+grixy = { version = "0.1.0", default-features = false }
+pxlfmt = { version = "0.2.0", default-features = false }
+
+[dev-dependencies]
+open = "5.3.2"
+png = "0.17.16"
