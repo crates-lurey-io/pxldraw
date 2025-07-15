@@ -55,9 +55,9 @@ fn main() {
 }
 
 fn opaque_black() -> Color<Rgba8888> {
-    Color::<Rgba8888>::new(0xFF00_0000)
+    Color::<Rgba8888>::with_rgba(0x00, 0x00, 0x00, 0xFF)
 }
 
 fn opaque_white() -> Color<Rgba8888> {
-    Color::<Rgba8888>::new(0xFFFF_FFFF)
+    Color::<Rgba8888>::with_rgba(0xFF, 0xFF, 0xFF, 0xFF)
 }

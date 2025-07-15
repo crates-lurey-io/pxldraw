@@ -4,8 +4,8 @@
 
 pub use grixy::core::Pos;
 use grixy::grid::GridWrite;
-pub use pxlfmt::core::Pixel as Color;
-use pxlfmt::{core::Format, prelude::Rgba8888};
+pub use pxlfmt::pixel::Pixel as Color;
+use pxlfmt::{pixel::Format, prelude::Rgba8888};
 
 /// Defines a target for drawing pixels on a 2D surface.
 pub trait DrawTarget<F: Format = Rgba8888> {

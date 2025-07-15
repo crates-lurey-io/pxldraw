@@ -352,7 +352,7 @@ dependencies = [
 [[package]]
 name = "pxlfmt"
 version = "0.3.0"
-source = "git+https://github.com/crates-lurey-io/pxlfmt#3701a6356f7406c3d1e0759ec01616b89899cf24"
+source = "git+https://github.com/crates-lurey-io/pxlfmt?rev=078e49a401ad61d9cc1507163ee248ec8fd9dc83#078e49a401ad61d9cc1507163ee248ec8fd9dc83"
 dependencies = [
  "bytemuck",
 ]
