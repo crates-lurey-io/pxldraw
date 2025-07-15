@@ -1,5 +1,7 @@
 //! 2D software pixel renderer.
 
+#![no_std]
+
 pub use grixy::core::Pos;
 use grixy::grid::GridWrite;
 pub use pxlfmt::core::Pixel as Color;

@@ -77,6 +77,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1b8e56985ec62d17e9c1001dc89c88ecd7dc08e47eba5ec7c29c7b5eeecde967"
 
 [[package]]
+name = "bytemuck"
+version = "1.23.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5c76a5792e44e4abe34d3abf15636779261d45a7450612059293d1d2cfc63422"
+
+[[package]]
 name = "cargo-bin"
 version = "0.0.0"
 dependencies = [
@@ -336,6 +342,7 @@ dependencies = [
 name = "pxldraw"
 version = "0.0.0-reserved"
 dependencies = [
+ "bytemuck",
  "grixy",
  "open",
  "png",
@@ -344,9 +351,11 @@ dependencies = [
 
 [[package]]
 name = "pxlfmt"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ba81e45665f1f6041a988217b233a655d759e9436c3c9dfd09235a71299803af"
+version = "0.3.0"
+source = "git+https://github.com/crates-lurey-io/pxlfmt#3701a6356f7406c3d1e0759ec01616b89899cf24"
+dependencies = [
+ "bytemuck",
+]
 
 [[package]]
 name = "quote"

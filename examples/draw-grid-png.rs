@@ -14,8 +14,7 @@ fn main() {
     const DENSE: usize = 10;
 
     // Create a pixel buffer.
-    // TODO: Make "Color" (Pixel) Copy if the internal representation is Copy.
-    let mut buf: [Color<Rgba8888>; WIDTH * HEIGHT] = std::array::from_fn(|_| opaque_black());
+    let mut buf = vec![opaque_black(); WIDTH * HEIGHT];
     let grid = SliceMutGrid::with_buffer_row_major(&mut buf, WIDTH, HEIGHT).unwrap();
     let mut draw = PixelBuf::new(grid);
 
@@ -42,14 +41,7 @@ fn main() {
     encoder.set_depth(png::BitDepth::Eight);
     let mut writer = encoder.write_header().unwrap();
 
-    // TODO: Add a into_raw_pixels method to PixelBuf.
-    let raw_pixels: &[u8] = unsafe {
-        std::slice::from_raw_parts(
-            buf.as_ptr().cast::<u8>(),
-            buf.len() * std::mem::size_of::<Color<Rgba8888>>(),
-        )
-    };
-    writer.write_image_data(raw_pixels).unwrap();
+    writer.write_image_data(bytemuck::cast_slice(&buf)).unwrap();
     println!(
         "Box drawn and saved to: {}",
         temp_dir.join("grid.png").display()
