@@ -21,7 +21,7 @@ taplo-cli = { version = "0.10.0", bins = ["taplo"] }
 
 [dependencies]
 grixy = { version = "0.1.0", default-features = false }
-pxlfmt = { version = "0.3.0", default-features = false, features = [
+pxlfmt = { git = "https://github.com/crates-lurey-io/pxlfmt", rev = "726cbcaec25afc331cb33072dcfa6a2e171b87c2", default-features = false, features = [
   "bytemuck",
 ] }
 

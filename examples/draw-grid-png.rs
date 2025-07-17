@@ -16,7 +16,7 @@ fn main() {
     // Create a pixel buffer.
     let mut buf = vec![opaque_black(); WIDTH * HEIGHT];
     let grid = SliceMutGrid::with_buffer_row_major(&mut buf, WIDTH, HEIGHT).unwrap();
-    let mut draw = Framebuffer::new(grid);
+    let mut draw = Framebuffer::from(grid);
 
     // Draw a box.
     for y in 0..HEIGHT {
