@@ -1,6 +1,6 @@
 use grixy::buf::SliceMutGrid;
 use png::Encoder;
-use pxldraw::{Color, DrawTarget, PixelBuf, Pos};
+use pxldraw::{Color, DrawTarget, Framebuffer, Pos};
 use pxlfmt::prelude::Rgba8888;
 
 /// Draws a box and outputs it as a PNG `grid.png` in a temp directory and opens it.
@@ -16,7 +16,7 @@ fn main() {
     // Create a pixel buffer.
     let mut buf = vec![opaque_black(); WIDTH * HEIGHT];
     let grid = SliceMutGrid::with_buffer_row_major(&mut buf, WIDTH, HEIGHT).unwrap();
-    let mut draw = PixelBuf::new(grid);
+    let mut draw = Framebuffer::new(grid);
 
     // Draw a box.
     for y in 0..HEIGHT {

@@ -352,7 +352,8 @@ dependencies = [
 [[package]]
 name = "pxlfmt"
 version = "0.3.0"
-source = "git+https://github.com/crates-lurey-io/pxlfmt?rev=078e49a401ad61d9cc1507163ee248ec8fd9dc83#078e49a401ad61d9cc1507163ee248ec8fd9dc83"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cc3461d509262d60cb5672c385912b249e4398b9b7649c742a87d6b03e7e9245"
 dependencies = [
  "bytemuck",
 ]

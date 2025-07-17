@@ -13,19 +13,42 @@ pub trait DrawTarget<F: Format = Rgba8888> {
     fn draw_pixel(&mut self, pos: Pos, color: Color<F>);
 }
 
-/// Acts as a drawing target for pixel buffers.
-pub struct PixelBuf<T: GridWrite<Element = Color<F>>, F: Format = Rgba8888> {
+/// A framebuffer.
+///
+/// Any target that can implements [`GridWrite<Element = Color>`] is a valid framebuffer.
+///
+/// ## Examples
+///
+/// ```rust
+/// use grixy::buf::ArrayGrid;
+/// use pxldraw::{Color, DrawTarget, Framebuffer, Pos};
+/// use pxlfmt::prelude::Rgba8888;
+///
+/// let grid = ArrayGrid::<Color<Rgba8888>, 100, grixy::core::RowMajor>::new_filled(
+///     10,
+///     10,
+///     Color::<Rgba8888>::new(0xFF00_0000),
+/// );
+///
+/// let mut framebuffer = Framebuffer::new(grid);
+/// framebuffer.draw_pixel(Pos::new(5, 5), Color::<Rgba8888>::new(0xFFFF_FFFF));
+/// ```
+pub struct Framebuffer<T, F = Rgba8888>
+where
+    F: Format,
+    T: GridWrite<Element = Color<F>>,
+{
     inner: T,
 }
 
-impl<F: Format, T: GridWrite<Element = Color<F>>> PixelBuf<T, F> {
-    /// Creates a new `PixelBuf` from the given grid.
+impl<F: Format, T: GridWrite<Element = Color<F>>> Framebuffer<T, F> {
+    /// Creates a new `Framebuffer` from the given grid.
     pub fn new(inner: T) -> Self {
         Self { inner }
     }
 }
 
-impl<F: Format, T: GridWrite<Element = Color<F>>> DrawTarget<F> for PixelBuf<T, F> {
+impl<F: Format, T: GridWrite<Element = Color<F>>> DrawTarget<F> for Framebuffer<T, F> {
     fn draw_pixel(&mut self, pos: Pos, color: Color<F>) {
         let _ = self.inner.set(pos, color);
     }
@@ -44,7 +67,7 @@ mod tests {
             1,
             Color::<Rgba8888>::new(0xFF00_0000),
         );
-        let mut pixel_buf = PixelBuf::new(grid);
+        let mut pixel_buf = Framebuffer::new(grid);
         pixel_buf.draw_pixel(Pos::new(0, 0), Color::<Rgba8888>::new(0xFFFF_FFFF));
 
         assert_eq!(
