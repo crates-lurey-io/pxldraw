@@ -1,5 +1,7 @@
 # Guidelines for Gemini and LLMs
 
+See [`../README.md`](../README.md) for a description of the project.
+
 ## Prefer following the [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/checklist.html)
 
 Naming (crate aligns with Rust naming conventions)
