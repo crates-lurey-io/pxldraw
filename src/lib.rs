@@ -30,7 +30,7 @@ use crate::target::DrawTarget;
 ///
 /// ```rust
 /// use grixy::buf::ArrayGrid;
-/// use pxldraw::{Color, DrawTarget, Framebuffer, Pos};
+/// use pxldraw::{Color, target::DrawTarget, Framebuffer, Pos};
 /// use pxlfmt::prelude::Rgba8888;
 ///
 /// let grid = ArrayGrid::<Color<Rgba8888>, 100, grixy::core::RowMajor>::new_filled(
