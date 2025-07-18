@@ -102,6 +102,16 @@ where
     fn draw_pixel(&mut self, pos: Pos, color: Color<F>) {
         let _ = self.inner.set(pos, color);
     }
+
+    fn fill_rect(&mut self, rect: Rect, color: Color<F>) {
+        self.inner.fill_rect_solid(rect, color);
+    }
+
+    fn copy_rect(&mut self, from: impl GridRead<Element = Color<F>>, src: Rect, dst: Pos) {
+        let iter = from.rect_iter(src).copied();
+        let dst = Rect::from_ltwh(dst.x, dst.y, src.width(), src.height());
+        self.inner.fill_rect_iter(dst, iter);
+    }
 }
 
 #[cfg(test)]
