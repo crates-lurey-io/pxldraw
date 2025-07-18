@@ -1,6 +1,6 @@
 use grixy::buf::SliceMutGrid;
 use png::Encoder;
-use pxldraw::{Color, DrawTarget, Framebuffer, Pos};
+use pxldraw::{Color, Framebuffer, Pos, target::DrawTarget};
 use pxlfmt::prelude::Rgba8888;
 
 /// Draws a box and outputs it as a PNG `grid.png` in a temp directory and opens it.
@@ -22,7 +22,7 @@ fn main() {
     for y in 0..HEIGHT {
         for x in 0..WIDTH {
             if (x % DENSE == 0) || (y % DENSE == 0) || (x == WIDTH - 1) || (y == HEIGHT - 1) {
-                draw.draw_pixel(Pos::new(x, y), opaque_white());
+                let _ = draw.draw_pixel(Pos::new(x, y), opaque_white());
             }
         }
     }
