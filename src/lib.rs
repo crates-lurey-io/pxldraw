@@ -2,6 +2,8 @@
 
 #![no_std]
 
+pub mod target;
+
 pub use grixy::core::{Pos, Rect};
 use grixy::grid::{GridRead, GridWrite};
 pub use pxlfmt::pixel::Pixel as Color;
