@@ -1,6 +1,10 @@
-use grixy::buf::SliceMutGrid;
+use grixy::core::Rect;
 use png::Encoder;
-use pxldraw::{Color, Framebuffer, Pos, target::DrawTarget};
+use pxldraw::{
+    buffer::Framebuffer,
+    core::{Color, Pos},
+    target::DrawTarget,
+};
 use pxlfmt::prelude::Rgba8888;
 
 /// Draws a box and outputs it as a PNG `grid.png` in a temp directory and opens it.
@@ -14,15 +18,16 @@ fn main() {
     const DENSE: usize = 10;
 
     // Create a pixel buffer.
-    let mut buf = vec![opaque_black(); WIDTH * HEIGHT];
-    let grid = SliceMutGrid::with_buffer_row_major(&mut buf, WIDTH, HEIGHT).unwrap();
-    let mut draw = Framebuffer::from(grid);
+    let mut buffer = Framebuffer::new(WIDTH, HEIGHT);
+    buffer
+        .fill_rect(Rect::from_ltwh(0, 0, WIDTH, HEIGHT), opaque_black())
+        .unwrap();
 
     // Draw a box.
     for y in 0..HEIGHT {
         for x in 0..WIDTH {
             if (x % DENSE == 0) || (y % DENSE == 0) || (x == WIDTH - 1) || (y == HEIGHT - 1) {
-                let _ = draw.draw_pixel(Pos::new(x, y), opaque_white());
+                buffer.draw_pixel(Pos::new(x, y), opaque_white()).unwrap();
             }
         }
     }
@@ -41,7 +46,9 @@ fn main() {
     encoder.set_depth(png::BitDepth::Eight);
     let mut writer = encoder.write_header().unwrap();
 
-    writer.write_image_data(bytemuck::cast_slice(&buf)).unwrap();
+    writer
+        .write_image_data(buffer.as_inner().as_bytes())
+        .unwrap();
     println!(
         "Box drawn and saved to: {}",
         temp_dir.join("grid.png").display()

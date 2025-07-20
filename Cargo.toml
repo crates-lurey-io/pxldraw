@@ -20,8 +20,12 @@ just = { version = "1.40.0" }
 taplo-cli = { version = "0.10.0", bins = ["taplo"] }
 
 [dependencies]
-grixy = { version = "0.2.0", default-features = false }
-pxlfmt = { git = "https://github.com/crates-lurey-io/pxlfmt", rev = "726cbcaec25afc331cb33072dcfa6a2e171b87c2", default-features = false, features = [
+alpha-blend = "0.1.2"
+bytemuck = "1.23.1"
+grixy = { git = "https://github.com/crates-lurey-io/grixy", rev = "5f50e50a15d2d3a688a8ea70360e766dea45d7c3", features = [
+  "bytemuck",
+] }
+pxlfmt = { git = "https://github.com/crates-lurey-io/pxlfmt", rev = "726cbcaec25afc331cb33072dcfa6a2e171b87c2", features = [
   "bytemuck",
 ] }
 
@@ -29,3 +33,7 @@ pxlfmt = { git = "https://github.com/crates-lurey-io/pxlfmt", rev = "726cbcaec25
 bytemuck = "1.23.1"
 open = "5.3.2"
 png = "0.17.16"
+
+[features]
+default = []
+alloc = ["grixy/alloc"]
