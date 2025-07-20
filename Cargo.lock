@@ -196,9 +196,9 @@ dependencies = [
 
 [[package]]
 name = "grixy"
-version = "0.3.0"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8e064d759a8d5f8d9d65e9b2a993c6bdd7b75692155c2e497377834eb0bdcf21"
+checksum = "120bd5a9f0a5c04e41ec7f886275ee2e57c2c13f4c2ea5925a0ec866ab5ed4f7"
 dependencies = [
  "bytemuck",
  "ixy",
@@ -256,9 +256,9 @@ checksum = "7943c866cc5cd64cbc25b2e01621d07fa8eb2a1a23160ee81ce38704e97b8ecf"
 
 [[package]]
 name = "ixy"
-version = "0.3.0"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7b253dd2fc5bbbd42099e40f0c39d7f0c54bc72859c948fde2c51b071d6a80ad"
+checksum = "20462f027dab742ba50b4f25392798dd94fe29506d0d4ba96a7b2eee65cf6e2d"
 
 [[package]]
 name = "libc"
@@ -341,7 +341,7 @@ dependencies = [
 
 [[package]]
 name = "pxldraw"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "bytemuck",
  "grixy",

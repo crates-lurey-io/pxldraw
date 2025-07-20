@@ -36,7 +36,7 @@ where
         rect: grixy::core::Rect,
         pixels: impl IntoIterator<Item = Color<Self::Format>>,
     ) -> Result<(), Self::Error> {
-        self.inner.fill_rect_iter(rect, pixels);
+        self.inner.fill_rect_from(rect, pixels);
         Ok(())
     }
 }

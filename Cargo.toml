@@ -5,7 +5,7 @@ license = "MIT"
 
 description = "2D software pixel renderer"
 repository = "https://github.com/crates-lurey-io/pxldraw"
-version = "0.1.0"
+version = "0.1.1"
 
 [lints.clippy]
 pedantic = "deny"
@@ -20,7 +20,7 @@ just = { version = "1.40.0" }
 taplo-cli = { version = "0.10.0", bins = ["taplo"] }
 
 [dependencies]
-grixy = { version = "0.3.0" }
+grixy = { version = "0.4.0" }
 pxlfmt = { version = "0.4.0" }
 
 [dev-dependencies]
