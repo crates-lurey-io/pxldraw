@@ -1,5 +1,7 @@
+//! Pixel buffer.
+
 #[cfg(feature = "alloc")]
-mod alloc;
+mod inner_alloc;
 
 mod impl_target;
 

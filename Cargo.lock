@@ -9,15 +9,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "320119579fcad9c21884f5c4861d16174d0e06250625266f50fe6898340abefa"
 
 [[package]]
-name = "alpha-blend"
-version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a257513b1d89f5987f9015d6fa397dee7068f64cf4ced9a6090f012a6c3186d1"
-dependencies = [
- "libm",
-]
-
-[[package]]
 name = "anstream"
 version = "0.6.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -205,8 +196,9 @@ dependencies = [
 
 [[package]]
 name = "grixy"
-version = "0.2.2"
-source = "git+https://github.com/crates-lurey-io/grixy?rev=5f50e50a15d2d3a688a8ea70360e766dea45d7c3#5f50e50a15d2d3a688a8ea70360e766dea45d7c3"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8e064d759a8d5f8d9d65e9b2a993c6bdd7b75692155c2e497377834eb0bdcf21"
 dependencies = [
  "bytemuck",
  "ixy",
@@ -273,12 +265,6 @@ name = "libc"
 version = "0.2.174"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1171693293099992e19cddea4e8b849964e9846f4acee11b3948bcc337be8776"
-
-[[package]]
-name = "libm"
-version = "0.2.15"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f9fbbcab51052fe104eb5e5d351cf728d30a5be1fe14d9be8a3b097481fb97de"
 
 [[package]]
 name = "linux-raw-sys"
@@ -357,7 +343,6 @@ dependencies = [
 name = "pxldraw"
 version = "0.0.0-reserved"
 dependencies = [
- "alpha-blend",
  "bytemuck",
  "grixy",
  "open",
@@ -367,8 +352,9 @@ dependencies = [
 
 [[package]]
 name = "pxlfmt"
-version = "0.3.0"
-source = "git+https://github.com/crates-lurey-io/pxlfmt?rev=726cbcaec25afc331cb33072dcfa6a2e171b87c2#726cbcaec25afc331cb33072dcfa6a2e171b87c2"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b2e458caac4ea391f8d2109687cce55ad241e97f0537b0395a1f7ab4496fdc4f"
 dependencies = [
  "bytemuck",
 ]
