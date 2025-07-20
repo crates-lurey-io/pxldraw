@@ -5,7 +5,7 @@ license = "MIT"
 
 description = "2D software pixel renderer"
 repository = "https://github.com/crates-lurey-io/pxldraw"
-version = "0.0.0-reserved"
+version = "0.1.0"
 
 [lints.clippy]
 pedantic = "deny"
