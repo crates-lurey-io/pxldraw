@@ -46,9 +46,7 @@ fn main() {
     encoder.set_depth(png::BitDepth::Eight);
     let mut writer = encoder.write_header().unwrap();
 
-    writer
-        .write_image_data(buffer.as_inner().as_bytes())
-        .unwrap();
+    writer.write_image_data(buffer.as_ref().as_bytes()).unwrap();
     println!(
         "Box drawn and saved to: {}",
         temp_dir.join("grid.png").display()

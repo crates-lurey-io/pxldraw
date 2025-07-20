@@ -15,12 +15,20 @@ where
     _fmt: PhantomData<F>,
 }
 
-impl<T, F> Framebuffer<T, F>
+impl<T, F> AsRef<T> for Framebuffer<T, F>
 where
     F: Format,
 {
-    // TODO: Is this a good API?
-    pub fn as_inner(&self) -> &T {
+    fn as_ref(&self) -> &T {
         &self.inner
+    }
+}
+
+impl<T, F> AsMut<T> for Framebuffer<T, F>
+where
+    F: Format,
+{
+    fn as_mut(&mut self) -> &mut T {
+        &mut self.inner
     }
 }

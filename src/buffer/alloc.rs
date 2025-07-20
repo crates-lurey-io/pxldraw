@@ -25,3 +25,15 @@ where
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn new() {
+        use pxlfmt::prelude::Rgba8888;
+        let fb = Framebuffer::<_, Rgba8888>::new(100, 100);
+        assert_eq!(fb.as_ref().as_ref().len(), 100 * 100);
+    }
+}
